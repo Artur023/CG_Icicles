@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Сосулька синяя.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Mob.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+custom_solver_bias = 0.248
+radius = 2.0
+height = 50.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+light_mask = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1, 0 )
+rotation = -0.0575959
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2( -1, -5 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -6.5 )
+scale = Vector2( 1, 1.65 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
