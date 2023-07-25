@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 color = Color( 0.482353, 0.658824, 0.913725, 1 )
 
 [node name="MobeTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.25
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
