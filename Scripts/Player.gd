@@ -7,7 +7,6 @@ var screen_size
 
 var target = Vector2()
 var screen;
-
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
@@ -20,23 +19,23 @@ func start(pos):
 # для сенсорного экрана	
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed:
-		screen = true;
+		screen = true
 		target.x = event.position.x
-	elif event is InputEventKey:
+	if event is InputEventKey:
 		screen = false
-		
+
 func _process(delta):
 	var velocity = Vector2()
 	 #для сенсорного экрана	
 	if screen:
 		if position.distance_to(target) > 10:
 			velocity = target - position
+	
 	# для клавиатуры
-	else:
-		if Input.is_action_pressed("ui_left"):
-			velocity.x -= 1
-		if Input.is_action_pressed("ui_right"):
-			velocity.x += 1
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
 	#общее
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
