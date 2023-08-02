@@ -15,6 +15,10 @@ config/description="Перемещай шарик, чтобы уворачива
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicGame="*res://Scenes/MusicGame.tscn"
+
 [display]
 
 window/size/width=480

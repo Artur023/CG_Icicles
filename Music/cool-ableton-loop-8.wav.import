@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cool-ableton-loop-8.wav-0738db38f826a4fd26c499dc97502e48.sample"
+
+[deps]
+
+source_file="res://Music/cool-ableton-loop-8.wav"
+dest_files=[ "res://.import/cool-ableton-loop-8.wav-0738db38f826a4fd26c499dc97502e48.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -30,12 +30,12 @@ func _process(delta):
 	if screen:
 		if position.distance_to(target) > 10:
 			velocity = target - position
-	
+	else:
 	# для клавиатуры
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
+		if Input.is_action_pressed("ui_left"):
+			velocity.x -= 1
+		if Input.is_action_pressed("ui_right"):
+			velocity.x += 1
 	#общее
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -50,7 +50,7 @@ func _process(delta):
 		$AnimatedSprite.animation = 'walk'
 		$AnimatedSprite.flip_h = velocity.x > 0
 	
-func _on_Player_body_entered():
+func _on_Player_body_entered(body):
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred('disabled', true)

@@ -5,8 +5,8 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Music/House In a Forest Loop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Music/gameover.wav" type="AudioStream" id=7]
+[ext_resource path="res://Music/251461__joshuaempyre__arcade-music-loop.wav" type="AudioStream" id=6]
+[ext_resource path="res://Music/bfxr_game-over.wav" type="AudioStream" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 color = Color( 0.482353, 0.658824, 0.913725, 1 )
 
 [node name="MobeTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 2.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -50,10 +50,14 @@ position = Vector2( 0, -128 )
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="MusicGame" type="AudioStreamPlayer" parent="."]
+physics_interpolation_mode = 2
 stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
 
 [node name="deathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -8.0
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobeTimer" to="." method="_on_MobeTimer_timeout"]

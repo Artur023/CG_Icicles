@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Music/bfxr_game-over.wav" type="AudioStream" id=1]
+
+[node name="deathSound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
