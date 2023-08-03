@@ -19,10 +19,10 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 	
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if event is InputEventScreenTouch and event.pressed and !get_node('../ButtonVolume').is_hovered():
 		screen = true
 		target.x = event.position.x
-	if event is InputEventKey:
+	elif event is InputEventKey:
 		screen = false
 
 func _process(delta):

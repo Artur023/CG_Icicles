@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.482353, 0.658824, 0.913725, 1 )
 
-[node name="ButtonVolume" parent="." instance=ExtResource( 8 )]
+[node name="ButtonVolume" parent="." groups=["button"] instance=ExtResource( 8 )]
 
 [node name="MobeTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -62,8 +62,6 @@ stream = ExtResource( 7 )
 volume_db = -8.0
 
 [connection signal="hit" from="Player" to="." method="game_over"]
-[connection signal="focus_entered" from="ButtonVolume" to="Player" method="_on_ButtonVolume_focus_entered"]
-[connection signal="focus_exited" from="ButtonVolume" to="Player" method="_on_ButtonVolume_focus_exited"]
 [connection signal="toggled" from="ButtonVolume" to="." method="_on_ButtonVolume_toggled"]
 [connection signal="timeout" from="MobeTimer" to="." method="_on_MobeTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

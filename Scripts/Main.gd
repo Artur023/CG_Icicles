@@ -24,8 +24,9 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.show_message('Избегай\n сосулек!')
 	get_tree().call_group('mobs', 'queue_free')
-	$MusicGame.play()
 	$ButtonVolume.show()
+	if !$ButtonVolume.button_state:
+		$MusicGame.play()
 
 func _on_MobeTimer_timeout():
 	var mob = mob_scene.instance()
