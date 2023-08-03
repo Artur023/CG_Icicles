@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Music/251461__joshuaempyre__arcade-music-loop.wav" type="AudioStream" id=6]
 [ext_resource path="res://Music/bfxr_game-over.wav" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/ButtonVolume.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -28,8 +29,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.482353, 0.658824, 0.913725, 1 )
 
+[node name="ButtonVolume" parent="." instance=ExtResource( 8 )]
+
 [node name="MobeTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.3
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -59,6 +62,9 @@ stream = ExtResource( 7 )
 volume_db = -8.0
 
 [connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="focus_entered" from="ButtonVolume" to="Player" method="_on_ButtonVolume_focus_entered"]
+[connection signal="focus_exited" from="ButtonVolume" to="Player" method="_on_ButtonVolume_focus_exited"]
+[connection signal="toggled" from="ButtonVolume" to="." method="_on_ButtonVolume_toggled"]
 [connection signal="timeout" from="MobeTimer" to="." method="_on_MobeTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

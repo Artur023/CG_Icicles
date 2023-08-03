@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icons/volume_off.svg" type="Texture" id=1]
+[ext_resource path="res://icons/volume_up.svg" type="Texture" id=3]
+
+[node name="ButtonVolume" type="CheckButton"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_right = -4.0
+margin_bottom = 56.0
+mouse_default_cursor_shape = 2
+custom_icons/off = ExtResource( 1 )
+custom_icons/on = ExtResource( 3 )

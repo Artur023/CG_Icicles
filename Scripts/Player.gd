@@ -17,7 +17,7 @@ func start(pos):
 	target = pos
 	show()
 	$CollisionShape2D.disabled = false
-# для сенсорного экрана	
+	
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed:
 		screen = true
