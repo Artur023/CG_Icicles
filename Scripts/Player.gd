@@ -7,6 +7,7 @@ var screen_size
 
 var target = Vector2()
 var screen;
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
