@@ -13,7 +13,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobeTimer.stop()
 	$HUD.show_game_over()
-	$MusicGame.stop()
+	music.stop()
 	$deathSound.play()
 	$ButtonVolume.hide()
 
@@ -26,7 +26,7 @@ func new_game():
 	get_tree().call_group('mobs', 'queue_free')
 	$ButtonVolume.show()
 	if !$ButtonVolume.button_state:
-		$MusicGame.play()
+		music.play()
 
 func _on_MobeTimer_timeout():
 	var mob = mob_scene.instance()
@@ -35,6 +35,13 @@ func _on_MobeTimer_timeout():
 	mob.position = mob_spawn_location.position
 	var velocity = Vector2(0, rand_range(200, 600))
 	mob.linear_velocity = velocity
+#	$MobeTimer.wait_time = 0.8
+	# TODO над придумать хороший алгоритм увеличения скорости и изменения моб таймера.
+	if score % 10 == 0:
+		$MobeTimer.wait_time = 0.1
+		mob.linear_velocity = velocity * 2
+	else:
+		$MobeTimer.wait_time = 0.5
 	add_child(mob)
 	
 func _on_ScoreTimer_timeout():
@@ -51,8 +58,7 @@ func _on_StartTimer_timeout():
 #		if event.pressed and event.scancode == KEY_ESCAPE:
 #			get_tree().quit()
 
-# вкл/выкл музызыка
-
+# вкл/выкл музыка
 func _on_ButtonVolume_toggled(button_pressed):
 	if music.playing:
 		music.stop()

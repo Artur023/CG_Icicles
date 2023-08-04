@@ -32,7 +32,7 @@ color = Color( 0.482353, 0.658824, 0.913725, 1 )
 [node name="ButtonVolume" parent="." groups=["button"] instance=ExtResource( 8 )]
 
 [node name="MobeTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
