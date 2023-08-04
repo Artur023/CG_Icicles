@@ -19,7 +19,7 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 	
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed and !get_node('../ButtonVolume').is_hovered():
+	if event is InputEventScreenTouch and event.pressed and !get_node("/root/Main/MusicButton").is_pressed():
 		screen = true
 		target.x = event.position.x
 	elif event is InputEventKey:
@@ -52,6 +52,7 @@ func _process(delta):
 		$AnimatedSprite.flip_h = velocity.x > 0
 	
 func _on_Player_body_entered(body):
+	body.queue_free()
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred('disabled', true)
