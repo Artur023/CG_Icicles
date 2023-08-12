@@ -34,8 +34,8 @@ func _on_MobeTimer_timeout():
 	mob_spawn_location.offset = randi()
 	mob.position = mob_spawn_location.position
 	var velocity = Vector2(0, rand_range(200, 600))
-	mob.linear_velocity = velocity
-	# TODO над придумать хороший алгоритм увеличения скорости и изменения моб таймера.
+	#алгоритм скорости
+	mob.linear_velocity.y = velocity.y + score
 	if score % 10 == 0:
 		$MobeTimer.wait_time = 0.07
 		mob.linear_velocity = velocity * 1.5

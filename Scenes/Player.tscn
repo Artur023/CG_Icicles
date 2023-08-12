@@ -15,6 +15,7 @@ animations = [ {
 radius = 23.8537
 
 [node name="Player" type="Area2D"]
+light_mask = 17
 position = Vector2( 121, 528 )
 space_override = 3
 script = ExtResource( 2 )
@@ -23,11 +24,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+light_mask = 17
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 17
 rotation = 2.69454
 shape = SubResource( 2 )
 
